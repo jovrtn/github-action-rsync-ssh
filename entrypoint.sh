@@ -23,4 +23,4 @@ chmod 644 "$KNOWN_HOSTS_PATH"
 chmod 600 "$SSH_KEY_PRIVATE_PATH"
 chmod 644 "$SSH_KEY_PUBLIC_PATH"
 
-sh -c "rsync -r -a -v -u -e \"ssh -i $SSH_KEY_PRIVATE_PATH -o UserKnownHostsFile=$KNOWN_HOSTS_PATH\" --delete $* $GITHUB_WORKSPACE/ $HOST_USER@$HOST_NAME:$HOST_PATH"
+sh -c "rsync -r -a -v -u --delete -e \"ssh -i $SSH_KEY_PRIVATE_PATH -o UserKnownHostsFile=$KNOWN_HOSTS_PATH\" $*"
